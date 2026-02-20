@@ -27,6 +27,10 @@
     overflow-x: hidden;
   }
 
+
+  /* Anchor offset for fixed nav */
+  [id] { scroll-margin-top: 90px; }
+
   /* ========= CURSOR ========= */
   .cursor {
     width: 12px; height: 12px;
@@ -948,6 +952,57 @@
   ::-webkit-scrollbar-track { background: var(--dark); }
   ::-webkit-scrollbar-thumb { background: rgba(200,136,58,0.4); }
 
+  
+  /* ========= BURGER MENU ========= */
+  .burger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+  }
+  .burger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--cream);
+    transition: all 0.3s;
+  }
+  .mobile-nav {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(14,11,8,0.98);
+    backdrop-filter: blur(20px);
+    z-index: 999;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+  }
+  .mobile-nav.open { display: flex; }
+  .mobile-nav a {
+    color: var(--cream);
+    text-decoration: none;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    transition: color 0.3s;
+  }
+  .mobile-nav a:hover { color: var(--amber); }
+  .mobile-nav-close {
+    position: absolute;
+    top: 28px; right: 28px;
+    background: none;
+    border: 1px solid rgba(200,136,58,0.3);
+    color: var(--cream);
+    width: 44px; height: 44px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   /* ========= RESPONSIVE ========= */
   @media (max-width: 900px) {
     .audit-grid { grid-template-columns: 1fr !important; padding: 0 28px !important; }
@@ -957,6 +1012,7 @@
     nav { padding: 20px 28px; }
     nav.scrolled { padding: 14px 28px; }
     .nav-links { display: none; }
+    .burger { display: flex; }
     section { padding: 80px 28px; }
     #stats { grid-template-columns: 1fr 1fr; padding: 40px 28px; }
     .packages-grid { grid-template-columns: 1fr; }
@@ -986,12 +1042,13 @@
     <li><a href="#services">Услуги</a></li>
     <li><a href="#process">Процесс</a></li>
     <li><a href="#portfolio">Портфолио</a></li>
-    <li><a href="#audit-consulting">Аудит</a></li>
-    <li><a href="#audit-consulting">Консалтинг</a></li>
+    <li><a href="#audit">Аудит</a></li>
+    <li><a href="#consulting">Консалтинг</a></li>
     <li><a href="#training">Обучение</a></li>
     <li><a href="#contact">Контакты</a></li>
   </ul>
-  <a href="#contact" class="nav-cta">Написать нам</a>
+  <a href="#contact" class="nav-cta" style="display:none;" id="navCta">Написать нам</a>
+  <div class="burger" id="burger" onclick="openMobileNav()"><span></span><span></span><span></span></div>
 </nav>
 
 <!-- HERO -->
@@ -1113,7 +1170,7 @@
   <div style="padding: 0 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 3px;" class="audit-grid">
 
     <!-- AUDIT -->
-    <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(200,136,58,0.1); padding: 60px 52px; position: relative; overflow: hidden; transition: all 0.5s ease; cursor: pointer;"
+    <div id="audit" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(200,136,58,0.1); padding: 60px 52px; position: relative; overflow: hidden; transition: all 0.5s ease; cursor: pointer;"
          class="audit-card reveal"
          onclick="openModal('audit')"
          onmouseenter="this.style.borderColor='rgba(200,136,58,0.3)'; this.style.transform='translateY(-4px)'"
@@ -1154,7 +1211,7 @@
     </div>
 
     <!-- CONSULTING -->
-    <div style="background: rgba(200,136,58,0.04); border: 1px solid rgba(200,136,58,0.15); padding: 60px 52px; position: relative; overflow: hidden; transition: all 0.5s ease; cursor: pointer;"
+    <div id="consulting" style="background: rgba(200,136,58,0.04); border: 1px solid rgba(200,136,58,0.15); padding: 60px 52px; position: relative; overflow: hidden; transition: all 0.5s ease; cursor: pointer;"
          class="audit-card reveal reveal-delay-1"
          onclick="openModal('consulting')"
          onmouseenter="this.style.borderColor='rgba(200,136,58,0.35)'; this.style.transform='translateY(-4px)'"
@@ -1354,8 +1411,10 @@
         <div class="contact-item-value" style="font-family: 'DM Sans'; font-size: 0.95rem; color: rgba(245,239,224,0.7);">Пн–Пт, 10:00–20:00<br>Ответим в течение дня</div>
       </div>
       <div class="contact-social reveal">
-       <a class="social-btn" href="https://t.me/BelayaKaterinaR" target="_blank" title="Telegram">✈</a>  
-       <a class="social-btn" href="#" title="VK">в</a>
+        <a class="social-btn" href="https://t.me/BelayaKaterinaR" target="_blank" title="Telegram">✈</a>    
+        <a class="social-btn" href="#" title="VK">в</a>
+        <a class="social-btn" href="#" title="WhatsApp">w</a>
+      </div>
     </div>
     <div class="contact-form reveal reveal-delay-1">
       <div id="formContainer">
@@ -1399,6 +1458,19 @@
     </div>
   </div>
 </section>
+
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-nav-close" onclick="closeMobileNav()">✕</button>
+  <a href="#services" onclick="closeMobileNav()">Услуги</a>
+  <a href="#audit" onclick="closeMobileNav()">Аудит</a>
+  <a href="#consulting" onclick="closeMobileNav()">Консалтинг</a>
+  <a href="#process" onclick="closeMobileNav()">Процесс</a>
+  <a href="#portfolio" onclick="closeMobileNav()">Портфолио</a>
+  <a href="#training" onclick="closeMobileNav()">Обучение</a>
+  <a href="#contact" onclick="closeMobileNav()">Контакты</a>
+</div>
 
 <!-- FOOTER -->
 <footer>
@@ -1638,6 +1710,17 @@
 </div>
 
 <script>
+
+// ===== MOBILE NAV =====
+function openMobileNav() {
+  document.getElementById('mobileNav').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeMobileNav() {
+  document.getElementById('mobileNav').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
 // ===== CURSOR =====
 const cursor = document.getElementById('cursor');
 const trail = document.getElementById('cursor-trail');
@@ -1692,7 +1775,7 @@ const countObserver = new IntersectionObserver((entries) => {
       const step = target / (dur / 16);
       const timer = setInterval(() => {
         start += step;
-        if (start >= target) { el.textContent = target + '+'; clearInterval(timer); }
+        if (start >= target) { el.textContent = (target === 98 ? target + '%' : target + '+'); clearInterval(timer); }
         else el.textContent = Math.floor(start);
       }, 16);
       countObserver.unobserve(el);
@@ -1718,7 +1801,7 @@ document.addEventListener('keydown', e => {
 });
 
 // ===== FORM =====
-const APPS_SCRIPT_URL = 'ВСТАВЬТЕ_СЮДА_URL_ВАШЕГО_APPS_SCRIPT';
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyZskrni_hBT7eAKmy8LHbHMrdZWWQzy7JvmWhU6Y5DqcZjOAc0iYmp_-ZBjj7co7Fp/exec';
 
 async function submitForm() {
   const btn = document.querySelector('.form-submit');
