@@ -950,6 +950,10 @@
 
   /* ========= RESPONSIVE ========= */
   @media (max-width: 900px) {
+    .audit-grid { grid-template-columns: 1fr !important; padding: 0 28px !important; }
+    #audit-consulting { padding: 0 0 80px 0 !important; }
+    #audit-consulting > div:first-child { padding: 60px 28px 40px !important; }
+
     nav { padding: 20px 28px; }
     nav.scrolled { padding: 14px 28px; }
     .nav-links { display: none; }
@@ -982,6 +986,8 @@
     <li><a href="#services">Услуги</a></li>
     <li><a href="#process">Процесс</a></li>
     <li><a href="#portfolio">Портфолио</a></li>
+    <li><a href="#audit-consulting">Аудит</a></li>
+    <li><a href="#audit-consulting">Консалтинг</a></li>
     <li><a href="#training">Обучение</a></li>
     <li><a href="#contact">Контакты</a></li>
   </ul>
@@ -1092,6 +1098,109 @@
       </ul>
       <button class="pkg-btn">Подробнее →</button>
     </div>
+  </div>
+</section>
+
+
+<!-- AUDIT & CONSULTING -->
+<section id="audit-consulting" style="background: linear-gradient(180deg, rgba(20,14,8,1) 0%, rgba(14,11,8,1) 100%); padding-top: 0; padding-bottom: 120px;">
+  <div style="padding: 0 60px; margin-bottom: 80px;">
+    <div class="section-eyebrow">Дополнительные услуги</div>
+    <h2 class="section-title reveal">Аудит и консалтинг:<br><em style="font-style:italic; color: var(--amber);">работаем с тем, что есть</em></h2>
+    <p class="section-sub reveal">Если меню уже есть, но что-то идёт не так — мы найдём причину и поможем исправить. Работаем с действующими кофейнями и сетями.</p>
+  </div>
+
+  <div style="padding: 0 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 3px;" class="audit-grid">
+
+    <!-- AUDIT -->
+    <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(200,136,58,0.1); padding: 60px 52px; position: relative; overflow: hidden; transition: all 0.5s ease; cursor: pointer;"
+         class="audit-card reveal"
+         onclick="openModal('audit')"
+         onmouseenter="this.style.borderColor='rgba(200,136,58,0.3)'; this.style.transform='translateY(-4px)'"
+         onmouseleave="this.style.borderColor='rgba(200,136,58,0.1)'; this.style.transform='translateY(0)'">
+      <div style="position:absolute; top:0; right:0; width:200px; height:200px; background: radial-gradient(ellipse at top right, rgba(200,136,58,0.07) 0%, transparent 70%); pointer-events:none;"></div>
+      
+      <div style="display:flex; align-items:flex-start; gap: 24px; margin-bottom: 40px;">
+        <div style="width:64px; height:64px; border:1px solid rgba(200,136,58,0.25); display:flex; align-items:center; justify-content:center; font-size:1.8rem; flex-shrink:0;">🔍</div>
+        <div>
+          <div style="color:var(--amber); font-size:0.7rem; letter-spacing:3px; text-transform:uppercase; margin-bottom:8px;">Услуга 04</div>
+          <div style="font-family:'Playfair Display',serif; font-size:2rem; line-height:1.15;">Аудит кофейни</div>
+        </div>
+      </div>
+
+      <p style="color:rgba(245,239,224,0.6); font-size:0.95rem; line-height:1.8; margin-bottom:36px; font-weight:300;">
+        Комплексная диагностика действующего бизнеса. Находим слабые места в меню, процессах и команде — и даём конкретный план, как их устранить. Работаем с отдельными кофейнями и сетями.
+      </p>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap: 12px; margin-bottom:40px;">
+        <div style="background:rgba(200,136,58,0.05); border:1px solid rgba(200,136,58,0.1); padding:16px 18px;">
+          <div style="color:var(--amber); font-size:0.68rem; letter-spacing:2px; text-transform:uppercase; margin-bottom:6px;">Одна точка</div>
+          <div style="font-family:'Playfair Display',serif; font-size:1.5rem;">от 25 000 ₽</div>
+        </div>
+        <div style="background:rgba(200,136,58,0.05); border:1px solid rgba(200,136,58,0.1); padding:16px 18px;">
+          <div style="color:var(--amber); font-size:0.68rem; letter-spacing:2px; text-transform:uppercase; margin-bottom:6px;">Сеть (за точку)</div>
+          <div style="font-family:'Playfair Display',serif; font-size:1.5rem;">от 15 000 ₽</div>
+        </div>
+      </div>
+
+      <ul style="list-style:none; margin-bottom:40px;">
+        <li style="padding:10px 0; border-bottom:1px solid rgba(200,136,58,0.07); color:rgba(245,239,224,0.7); font-size:0.87rem; display:flex; align-items:center; gap:10px;"><span style="color:var(--amber);">→</span> Аудит меню и матрицы продаж</li>
+        <li style="padding:10px 0; border-bottom:1px solid rgba(200,136,58,0.07); color:rgba(245,239,224,0.7); font-size:0.87rem; display:flex; align-items:center; gap:10px;"><span style="color:var(--amber);">→</span> Проверка рецептур и стандартов</li>
+        <li style="padding:10px 0; border-bottom:1px solid rgba(200,136,58,0.07); color:rgba(245,239,224,0.7); font-size:0.87rem; display:flex; align-items:center; gap:10px;"><span style="color:var(--amber);">→</span> Оценка работы бариста</li>
+        <li style="padding:10px 0; color:rgba(245,239,224,0.7); font-size:0.87rem; display:flex; align-items:center; gap:10px;"><span style="color:var(--amber);">→</span> Отчёт с планом улучшений</li>
+      </ul>
+
+      <button class="pkg-btn">Подробнее об аудите →</button>
+    </div>
+
+    <!-- CONSULTING -->
+    <div style="background: rgba(200,136,58,0.04); border: 1px solid rgba(200,136,58,0.15); padding: 60px 52px; position: relative; overflow: hidden; transition: all 0.5s ease; cursor: pointer;"
+         class="audit-card reveal reveal-delay-1"
+         onclick="openModal('consulting')"
+         onmouseenter="this.style.borderColor='rgba(200,136,58,0.35)'; this.style.transform='translateY(-4px)'"
+         onmouseleave="this.style.borderColor='rgba(200,136,58,0.15)'; this.style.transform='translateY(0)'">
+      <div style="position:absolute; top:0; right:0; width:200px; height:200px; background: radial-gradient(ellipse at top right, rgba(200,136,58,0.1) 0%, transparent 70%); pointer-events:none;"></div>
+
+      <div style="display:flex; align-items:flex-start; gap: 24px; margin-bottom: 40px;">
+        <div style="width:64px; height:64px; border:1px solid rgba(200,136,58,0.35); background:rgba(200,136,58,0.08); display:flex; align-items:center; justify-content:center; font-size:1.8rem; flex-shrink:0;">📐</div>
+        <div>
+          <div style="color:var(--amber); font-size:0.7rem; letter-spacing:3px; text-transform:uppercase; margin-bottom:8px;">Услуга 05</div>
+          <div style="font-family:'Playfair Display',serif; font-size:2rem; line-height:1.15;">Консалтинг</div>
+        </div>
+      </div>
+
+      <p style="color:rgba(245,239,224,0.6); font-size:0.95rem; line-height:1.8; margin-bottom:36px; font-weight:300;">
+        Помогаем выстроить или починить бизнес-процессы изнутри. Запуск с нуля, оптимизация работающего бизнеса, внедрение стандартов — работаем рядом, пока не получится результат.
+      </p>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap: 12px; margin-bottom:40px;">
+        <div style="background:rgba(200,136,58,0.06); border:1px solid rgba(200,136,58,0.15); padding:16px 14px; text-align:center;">
+          <div style="color:var(--amber); font-size:0.65rem; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:6px;">Консультация</div>
+          <div style="font-family:'Playfair Display',serif; font-size:1.2rem;">5 000 ₽</div>
+          <div style="color:rgba(245,239,224,0.4); font-size:0.7rem; margin-top:4px;">/ час</div>
+        </div>
+        <div style="background:rgba(200,136,58,0.06); border:1px solid rgba(200,136,58,0.15); padding:16px 14px; text-align:center;">
+          <div style="color:var(--amber); font-size:0.65rem; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:6px;">Проект</div>
+          <div style="font-family:'Playfair Display',serif; font-size:1.2rem;">от 60 000 ₽</div>
+          <div style="color:rgba(245,239,224,0.4); font-size:0.7rem; margin-top:4px;">фиксированно</div>
+        </div>
+        <div style="background:rgba(200,136,58,0.06); border:1px solid rgba(200,136,58,0.15); padding:16px 14px; text-align:center;">
+          <div style="color:var(--amber); font-size:0.65rem; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:6px;">Абонемент</div>
+          <div style="font-family:'Playfair Display',serif; font-size:1.2rem;">от 30 000 ₽</div>
+          <div style="color:rgba(245,239,224,0.4); font-size:0.7rem; margin-top:4px;">/ месяц</div>
+        </div>
+      </div>
+
+      <ul style="list-style:none; margin-bottom:40px;">
+        <li style="padding:10px 0; border-bottom:1px solid rgba(200,136,58,0.09); color:rgba(245,239,224,0.7); font-size:0.87rem; display:flex; align-items:center; gap:10px;"><span style="color:var(--amber);">→</span> Выстраивание операционных процессов</li>
+        <li style="padding:10px 0; border-bottom:1px solid rgba(200,136,58,0.09); color:rgba(245,239,224,0.7); font-size:0.87rem; display:flex; align-items:center; gap:10px;"><span style="color:var(--amber);">→</span> Разработка стандартов и регламентов</li>
+        <li style="padding:10px 0; border-bottom:1px solid rgba(200,136,58,0.09); color:rgba(245,239,224,0.7); font-size:0.87rem; display:flex; align-items:center; gap:10px;"><span style="color:var(--amber);">→</span> Подбор поставщиков и оборудования</li>
+        <li style="padding:10px 0; color:rgba(245,239,224,0.7); font-size:0.87rem; display:flex; align-items:center; gap:10px;"><span style="color:var(--amber);">→</span> Оптимизация затрат и маржинальности</li>
+      </ul>
+
+      <button class="pkg-btn primary">Обсудить задачу →</button>
+    </div>
+
   </div>
 </section>
 
@@ -1245,9 +1354,8 @@
         <div class="contact-item-value" style="font-family: 'DM Sans'; font-size: 0.95rem; color: rgba(245,239,224,0.7);">Пн–Пт, 10:00–20:00<br>Ответим в течение дня</div>
       </div>
       <div class="contact-social reveal">
-        <a class="social-btn" href="https://t.me/BelayaKaterinaR" target="_blank" title="Telegram">✈</a>
-        <a class="social-btn" href="#" title="VK">в</a>
-      </div>
+       <a class="social-btn" href="https://t.me/BelayaKaterinaR" target="_blank" title="Telegram">✈</a>  
+       <a class="social-btn" href="#" title="VK">в</a>
     </div>
     <div class="contact-form reveal reveal-delay-1">
       <div id="formContainer">
@@ -1272,6 +1380,9 @@
             <option>Пакет «База» — разработка меню (40 000 ₽)</option>
             <option>Пакет «База + Продакшн» — меню и фото (55 000 ₽)</option>
             <option>Обучение бариста (от 12 000 ₽)</option>
+            <option>Аудит кофейни (от 25 000 ₽)</option>
+            <option>Консалтинг — разовая консультация (5 000 ₽/час)</option>
+            <option>Консалтинг — проект или абонемент</option>
             <option>Несколько услуг / Другое</option>
           </select>
         </div>
@@ -1607,7 +1718,7 @@ document.addEventListener('keydown', e => {
 });
 
 // ===== FORM =====
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyZskrni_hBT7eAKmy8LHbHMrdZWWQzy7JvmWhU6Y5DqcZjOAc0iYmp_-ZBjj7co7Fp/exec';
+const APPS_SCRIPT_URL = 'ВСТАВЬТЕ_СЮДА_URL_ВАШЕГО_APPS_SCRIPT';
 
 async function submitForm() {
   const btn = document.querySelector('.form-submit');
@@ -1655,5 +1766,170 @@ function showFormError(msg) {
   err.textContent = msg;
 }
 </script>
+
+<!-- AUDIT MODAL -->
+<div class="modal-overlay" id="modal-audit" onclick="closeModal('audit')">
+  <div class="modal" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal('audit')">✕</button>
+    <div class="modal-eyebrow">Услуга 04</div>
+    <div class="modal-title">🔍 Аудит кофейни / сети</div>
+    <div class="modal-price">от 25 000 ₽ · одна точка &nbsp;|&nbsp; от 15 000 ₽/точка · сеть</div>
+
+    <div class="modal-stage">
+      <div class="modal-stage-title">
+        Первичная диагностика
+        <span class="stage-badge">Этап 1</span>
+        <span class="stage-time">День 1</span>
+      </div>
+      <ul>
+        <li>Установочная встреча: цели, боли, ожидания</li>
+        <li>Анализ текущих показателей: выручка, средний чек, популярность позиций</li>
+        <li>Изучение действующих стандартов и документации</li>
+        <li>Первичный анализ конкурентного окружения</li>
+      </ul>
+      <div class="modal-result"><strong>Результат:</strong> Карта текущего состояния бизнеса и зон для проверки</div>
+    </div>
+
+    <div class="modal-stage">
+      <div class="modal-stage-title">
+        Аудит меню и продуктовой матрицы
+        <span class="stage-badge">Этап 2</span>
+        <span class="stage-time">1–2 дня</span>
+      </div>
+      <ul>
+        <li>Анализ ассортимента по матрице BCG (звёзды, дойные коровы, аутсайдеры)</li>
+        <li>Проверка актуальности позиций и сезонности</li>
+        <li>Расчёт реальной себестоимости и маржинальности каждой позиции</li>
+        <li>Оценка ценообразования относительно рынка</li>
+        <li>Анализ структуры меню: читаемость, логика, продающие формулировки</li>
+      </ul>
+      <div class="modal-result"><strong>Результат:</strong> Рейтинг позиций по прибыльности и популярности, рекомендации по изменениям</div>
+    </div>
+
+    <div class="modal-stage">
+      <div class="modal-stage-title">
+        Проверка стандартов и качества
+        <span class="stage-badge">Этап 3</span>
+        <span class="stage-time">1 день</span>
+      </div>
+      <ul>
+        <li>Выезд на точку: наблюдение за работой команды в реальных условиях</li>
+        <li>Проверка соблюдения рецептур и технологических карт</li>
+        <li>Оценка техники приготовления эспрессо, работы с молоком</li>
+        <li>Дегустация ключевых позиций меню по стандартам качества</li>
+        <li>Контроль санитарных норм и условий хранения</li>
+      </ul>
+      <div class="modal-result"><strong>Результат:</strong> Оценка соответствия стандартам, выявленные нарушения и отклонения</div>
+    </div>
+
+    <div class="modal-stage">
+      <div class="modal-stage-title">
+        Аудит сервиса и команды
+        <span class="stage-badge">Этап 4</span>
+        <span class="stage-time">1 день</span>
+      </div>
+      <ul>
+        <li>Оценка скорости обслуживания и соблюдения этапов сервиса</li>
+        <li>Проверка навыков коммуникации с гостями</li>
+        <li>Анализ системы обучения и адаптации новых сотрудников</li>
+        <li>Выявление кадровых рисков и точек потери качества</li>
+      </ul>
+      <div class="modal-result"><strong>Результат:</strong> Профиль команды: сильные стороны и зоны роста</div>
+    </div>
+
+    <div class="modal-stage">
+      <div class="modal-stage-title">
+        Итоговый отчёт и презентация
+        <span class="stage-badge">Этап 5</span>
+        <span class="stage-time">2–3 дня</span>
+      </div>
+      <ul>
+        <li>Структурированный отчёт: что работает, что нет и почему</li>
+        <li>Приоритизированный план улучшений с конкретными шагами</li>
+        <li>Оценка каждого изменения по влиянию на выручку и сложности внедрения</li>
+        <li>Онлайн-разбор отчёта с командой или собственником</li>
+      </ul>
+      <div class="modal-result"><strong>Результат:</strong> Готовый план действий с приоритетами и ожидаемым эффектом</div>
+    </div>
+
+    <div style="background:rgba(200,136,58,0.06); border:1px solid rgba(200,136,58,0.18); padding:20px 24px; margin: 16px 0; color:rgba(245,239,224,0.65); font-size:0.875rem; line-height:1.7;">
+      💡 Для сетей от 3 точек — выезд на каждую, сравнительный отчёт по всем локациям и общие рекомендации по стандартизации.
+    </div>
+    <a href="#contact" class="btn-primary" onclick="closeModal('audit')" style="display:block; text-align:center; margin-top:32px;">Заказать аудит</a>
+  </div>
+</div>
+
+<!-- CONSULTING MODAL -->
+<div class="modal-overlay" id="modal-consulting" onclick="closeModal('consulting')">
+  <div class="modal" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal('consulting')">✕</button>
+    <div class="modal-eyebrow">Услуга 05</div>
+    <div class="modal-title">📐 Консалтинг</div>
+    <div class="modal-price">Разовая консультация — 5 000 ₽/час &nbsp;|&nbsp; Проект — от 60 000 ₽ &nbsp;|&nbsp; Абонемент — от 30 000 ₽/мес</div>
+
+    <div class="modal-stage">
+      <div class="modal-stage-title">Формат: Разовая консультация</div>
+      <ul>
+        <li>1–2 часа онлайн или офлайн встречи по конкретной задаче</li>
+        <li>Разбор ситуации, ответы на вопросы, рекомендации</li>
+        <li>Подходит для: точечных вопросов, принятия решений, проверки идеи</li>
+        <li>Краткое резюме встречи с ключевыми выводами</li>
+      </ul>
+      <div class="modal-result"><strong>Подходит для:</strong> разового вопроса, проверки идеи, быстрого аудита конкретной проблемы</div>
+    </div>
+
+    <div class="modal-stage">
+      <div class="modal-stage-title">Формат: Проектная работа</div>
+      <ul>
+        <li>Запуск кофейни с нуля: от концепции до первой продажи</li>
+        <li>Выстраивание операционной модели и бизнес-процессов</li>
+        <li>Разработка стандартов работы (SOP) под ваш формат</li>
+        <li>Помощь в подборе и проверке поставщиков кофе и ингредиентов</li>
+        <li>Подбор и обоснование оборудования под задачи и бюджет</li>
+        <li>Внедрение системы контроля качества на точке</li>
+        <li>Разработка системы мотивации и оценки персонала</li>
+      </ul>
+      <div class="modal-result"><strong>Подходит для:</strong> запуска, реструктуризации, масштабирования на новые точки</div>
+    </div>
+
+    <div class="modal-stage">
+      <div class="modal-stage-title">Формат: Абонементное сопровождение</div>
+      <ul>
+        <li>Постоянная поддержка: доступность по вопросам в рабочие дни</li>
+        <li>Регулярные встречи — анализ показателей и корректировка курса</li>
+        <li>Контроль внедрения изменений и обратная связь</li>
+        <li>Помощь в найме и оценке кандидатов</li>
+        <li>Оперативное реагирование на нестандартные ситуации</li>
+        <li>Ежемесячный отчёт о динамике ключевых метрик</li>
+      </ul>
+      <div class="modal-result"><strong>Подходит для:</strong> владельцев, которым нужен эксперт рядом на постоянной основе</div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin: 24px 0;">
+      <div style="background:rgba(200,136,58,0.06); border:1px solid rgba(200,136,58,0.15); padding:20px;">
+        <div style="color:var(--amber); font-size:0.7rem; letter-spacing:2px; text-transform:uppercase; margin-bottom:8px;">С чем работаем</div>
+        <ul style="list-style:none; color:rgba(245,239,224,0.6); font-size:0.82rem; line-height:1.9;">
+          <li>· Запуск кофейни / франшизы</li>
+          <li>· Падение выручки и трафика</li>
+          <li>· Проблемы с командой</li>
+          <li>· Масштабирование на сеть</li>
+          <li>· Оптимизация расходов</li>
+        </ul>
+      </div>
+      <div style="background:rgba(200,136,58,0.06); border:1px solid rgba(200,136,58,0.15); padding:20px;">
+        <div style="color:var(--amber); font-size:0.7rem; letter-spacing:2px; text-transform:uppercase; margin-bottom:8px;">Как начать</div>
+        <ul style="list-style:none; color:rgba(245,239,224,0.6); font-size:0.82rem; line-height:1.9;">
+          <li>1. Оставьте заявку</li>
+          <li>2. Бесплатный созвон — 30 мин</li>
+          <li>3. Предлагаем формат и условия</li>
+          <li>4. Начинаем работу</li>
+        </ul>
+      </div>
+    </div>
+
+    <a href="#contact" class="btn-primary" onclick="closeModal('consulting')" style="display:block; text-align:center; margin-top:16px;">Обсудить задачу</a>
+  </div>
+</div>
+
 </body>
 </html>
