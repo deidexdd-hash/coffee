@@ -1608,11 +1608,52 @@ document.addEventListener('keydown', e => {
 });
 
 // ===== FORM =====
-function submitForm() {
-  const container = document.getElementById('formContainer');
-  const success = document.getElementById('formSuccess');
-  container.style.display = 'none';
-  success.style.display = 'block';
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyZskrni_hBT7eAKmy8LHbHMrdZWWQzy7JvmWhU6Y5DqcZjOAc0iYmp_-ZBjj7co7Fp/exec';
+
+async function submitForm() {
+  const btn = document.querySelector('.form-submit');
+  const name = document.querySelector('#formContainer input[placeholder="Иван Иванов"]').value.trim();
+  const phone = document.querySelector('#formContainer input[placeholder="+7 999 000-00-00"]').value.trim();
+  const place = document.querySelector('#formContainer input[placeholder="Кофейня «Название»"]').value.trim();
+  const service = document.querySelector('#formContainer select').value;
+  const message = document.querySelector('#formContainer textarea').value.trim();
+
+  if (!name || !phone) {
+    showFormError('Пожалуйста, укажите имя и телефон');
+    return;
+  }
+
+  btn.textContent = 'Отправляем...';
+  btn.disabled = true;
+
+  const data = { name, phone, place, service, message, date: new Date().toLocaleString('ru-RU') };
+
+  try {
+    await fetch(APPS_SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+    // no-cors always resolves, so we show success
+    document.getElementById('formContainer').style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+  } catch (err) {
+    btn.textContent = 'Отправить заявку';
+    btn.disabled = false;
+    showFormError('Ошибка отправки. Пожалуйста, свяжитесь с нами напрямую.');
+  }
+}
+
+function showFormError(msg) {
+  let err = document.getElementById('formError');
+  if (!err) {
+    err = document.createElement('div');
+    err.id = 'formError';
+    err.style.cssText = 'color:#e07040; font-size:0.82rem; margin-top:12px; padding: 12px 16px; border: 1px solid rgba(224,112,64,0.3); background: rgba(224,112,64,0.05);';
+    document.querySelector('.form-submit').after(err);
+  }
+  err.textContent = msg;
 }
 </script>
 </body>
